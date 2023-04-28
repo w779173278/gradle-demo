@@ -8,7 +8,7 @@ pipeline {
                 rtGradleRun(
                         useWrapper: true,
                         usesPlugin: true,
-                        tasks: '--no-daemon build'
+                        tasks: '--no-daemon --stop  build'
                 )
             }
         }
