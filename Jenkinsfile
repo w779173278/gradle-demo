@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('BUILD') {
             steps {
-                echo 'Hello World'
+                def rtGradle = Artifactory.newGradleBuild()
+                rtGradle.run buildFile: "build.gradle", tasks: "build"
             }
         }
     }
