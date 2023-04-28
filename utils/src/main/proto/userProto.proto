@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package subprojectdemo02;
+
+//option java_multiple_files = true;
+option java_package = "com.bocloud.subprojectdemo02.protos";
+//option java_outer_classname = "AddressBookProtos";
+
+message SearchIdRequest {
+  int32 id = 1;
+}
+
+message UserModel {
+  int32 id = 1;
+  string name = 2;
+  PhoneNumber phoneNumber = 3;
+}
+message PhoneNumber{
+  int32 id = 1;
+  PhoneNumberType type = 2;
+
+}
+enum PhoneNumberType {
+  PUBLIC = 0;
+  PRIMARY = 1;
+}
+message AddResponse {
+  bool success = 1 ;
+}
+service UserService {
+  rpc byId (SearchIdRequest) returns (UserModel);
+
+  rpc add (UserModel) returns (AddResponse);
+}

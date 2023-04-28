@@ -1,0 +1,11 @@
+pluginManagement() {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+        mavenCentral()
+        google()
+    }
+}
+rootProject.name = 'gradle-demo-root'
+include ':core'
+include ':utils'
